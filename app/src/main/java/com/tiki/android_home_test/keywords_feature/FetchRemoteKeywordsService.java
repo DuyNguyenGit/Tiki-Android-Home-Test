@@ -49,11 +49,10 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
         return keywordList;
     }
 
-    private String breakString(String input) {
+    public String breakString(String input) {
         String output = makeOnlyOneSpaceBetweenTwoWords(input);
 
         if (output.contains(" ")) {
-            Log.i(TAG, "breakString: " + output);
             int length = output.length();
             int centerpoint = length / 2 - 1;
             if (output.charAt(centerpoint) == ' ') {
@@ -75,17 +74,12 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
                 output = enterStringAt(output, breakPoint);
             }
         }
-        Log.e(TAG, "breakString: " + output);
         return output;
     }
 
     public String makeOnlyOneSpaceBetweenTwoWords(String input) {
         String output = input.trim().replaceAll(" +", " ");
         return output;
-    }
-
-    public String charRemoveAt(String str, int p) {
-        return str.substring(0, p) + str.substring(p + 1);
     }
 
     public String enterStringAt(String str, int p) {
