@@ -1,7 +1,6 @@
 package com.tiki.android_home_test.keywords_feature;
 
 import android.os.AsyncTask;
-import android.util.Log;
 
 import com.tiki.android_home_test.network.HttpHandler;
 
@@ -49,6 +48,12 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
         return keywordList;
     }
 
+    /**
+     * This function to specify a position in string that will be breaken at that point.
+     *
+     * @param input string need to be seperated.
+     * @return output string that seperated on two lines.
+     */
     public String breakString(String input) {
         String output = makeOnlyOneSpaceBetweenTwoWords(input);
 
@@ -77,6 +82,12 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
         return output;
     }
 
+    /**
+     * This function to ensure that there is only one space between two words in input string.
+     *
+     * @param input string that need to be refactor by removing space if there are more than one space between two words.
+     * @return output string that removed space, this output will only has one space between two words.
+     */
     public String makeOnlyOneSpaceBetweenTwoWords(String input) {
         String output = input.trim().replaceAll(" +", " ");
         return output;
