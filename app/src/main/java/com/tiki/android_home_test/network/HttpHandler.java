@@ -1,4 +1,4 @@
-package com.tiki.android_home_test.main;
+package com.tiki.android_home_test.network;
 
 import com.tiki.android_home_test.keywords_feature.FetchRemoteKeywordsService;
 import com.tiki.android_home_test.utils.Constants;

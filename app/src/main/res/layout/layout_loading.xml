@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/layoutLoading"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_cover_layout"
+    android:clickable="true"
+    android:focusable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <ProgressBar
+        android:id="@+id/progress_bar_common_medium"
+        android:layout_width="@dimen/progress_bar_size_medium"
+        android:layout_height="@dimen/progress_bar_size_medium"
+        android:layout_gravity="center" />
 
 </LinearLayout>

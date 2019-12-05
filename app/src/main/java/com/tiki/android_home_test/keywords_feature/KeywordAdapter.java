@@ -1,5 +1,6 @@
-package com.tiki.android_home_test.Main;
+package com.tiki.android_home_test.keywords_feature;
 
+import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.tiki.android_home_test.R;
+import com.tiki.android_home_test.utils.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,7 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.textView.setText(keywordList.get(position));
+        holder.layout.getBackground().setColorFilter(Util.randomColor(), PorterDuff.Mode.SRC_ATOP);
     }
 
     @Override
@@ -35,7 +38,7 @@ public class KeywordAdapter extends RecyclerView.Adapter<KeywordAdapter.ViewHold
         return keywordList.size();
     }
 
-    public void updateList(List<String> newestData) {
+    void updateList(List<String> newestData) {
         keywordList.clear();
         keywordList = newestData;
         notifyDataSetChanged();

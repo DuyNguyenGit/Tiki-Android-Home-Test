@@ -1,4 +1,4 @@
-package com.tiki.android_home_test.Main;
+package com.tiki.android_home_test.keywords_feature;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -13,6 +13,7 @@ public class KeywordsErrorLayout extends RelativeLayout {
 
     private View rootView;
     private TextView tvErrorMsg;
+    private RelativeLayout layoutError;
 
     public KeywordsErrorLayout(Context context) {
         super(context);
@@ -32,23 +33,15 @@ public class KeywordsErrorLayout extends RelativeLayout {
     private void init(Context context, AttributeSet attrs, int defStyleAttr) {
         rootView = LayoutInflater.from(context).inflate(R.layout.layout_error_keywords, this);
         tvErrorMsg = rootView.findViewById(R.id.tvErrorKeywords);
-    }
-
-    public void showKeywordsErrorView(String errormsg) {
-        rootView.setVisibility(VISIBLE);
-        tvErrorMsg.setText(errormsg);
-    }
-
-    public void hideKeywordsErrorView() {
-        rootView.setVisibility(GONE);
+        layoutError = rootView.findViewById(R.id.errorKeywordsView);
     }
 
     public void hide() {
-        this.setVisibility(GONE);
+        layoutError.setVisibility(GONE);
     }
 
     public void show(String errorMsg) {
-        this.setVisibility(VISIBLE);
+        layoutError.setVisibility(VISIBLE);
         tvErrorMsg.setText(errorMsg);
     }
 }

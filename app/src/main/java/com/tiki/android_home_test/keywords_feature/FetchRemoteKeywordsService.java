@@ -1,7 +1,9 @@
-package com.tiki.android_home_test.Main;
+package com.tiki.android_home_test.keywords_feature;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.tiki.android_home_test.network.HttpHandler;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,13 +34,13 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
     protected List<String> doInBackground(String... strings) {
         final List<String> keywordList = new ArrayList<>();
         final String url = strings[0];
-        HttpHandler httpHandler = new HttpHandler();
+        final HttpHandler httpHandler = new HttpHandler(this.listener);
         final String response = httpHandler.makeServiceCall(url);
         if (response != null) {
             try {
                 JSONArray keywordArray = new JSONArray(response);
                 for (int i = 0; i < keywordArray.length(); i++) {
-                    keywordList.add(seperateString((String) keywordArray.get(i)));
+                    keywordList.add(breakString((String) keywordArray.get(i)));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -47,11 +49,11 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
         return keywordList;
     }
 
-    private String seperateString(String input) {
+    private String breakString(String input) {
         String output = makeOnlyOneSpaceBetweenTwoWords(input);
 
         if (output.contains(" ")) {
-            Log.i(TAG, "seperateString: " + output);
+            Log.i(TAG, "breakString: " + output);
             int length = output.length();
             int centerpoint = length / 2 - 1;
             if (output.charAt(centerpoint) == ' ') {
@@ -73,7 +75,7 @@ public class FetchRemoteKeywordsService extends AsyncTask<String, Void, List<Str
                 output = enterStringAt(output, breakPoint);
             }
         }
-        Log.e(TAG, "seperateString: " + output);
+        Log.e(TAG, "breakString: " + output);
         return output;
     }
 

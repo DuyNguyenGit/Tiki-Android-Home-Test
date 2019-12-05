@@ -1,4 +1,4 @@
-package com.tiki.android_home_test.Main;
+package com.tiki.android_home_test.keywords_feature;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -18,6 +18,7 @@ public class KeywordsLayout extends RelativeLayout implements KeywordsView {
     private KeywordsErrorLayout keywordsErrorLayout;
     private KeywordsContentLayout keywordsContentLayout;
     private KeywordsViewListener viewListener;
+    private Context context;
 
     public KeywordsLayout(@NonNull Context context) {
         super(context);
@@ -71,8 +72,13 @@ public class KeywordsLayout extends RelativeLayout implements KeywordsView {
     }
 
     @Override
-    public void showError(String errorMsg) {
-        keywordsErrorLayout.show(errorMsg);
-        keywordsContentLayout.hide();
+    public void showError(final String errorMsg) {
+        this.post(new Runnable() {
+            @Override
+            public void run() {
+                keywordsContentLayout.hide();
+                keywordsErrorLayout.show(errorMsg);
+            }
+        });
     }
 }

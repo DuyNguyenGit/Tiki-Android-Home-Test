@@ -1,4 +1,4 @@
-package com.tiki.android_home_test.Main;
+package com.tiki.android_home_test.utils;
 
 public class Constants {
     public static final String keywordsUrl = "https://raw.githubusercontent.com/tikivn/android-home-test/v2/keywords.json";

@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <dimen name="progress_bar_size_medium">50dp</dimen>
+    <dimen name="title_size">20sp</dimen>
+    <dimen name="normal_size">14sp</dimen>
+</resources>
