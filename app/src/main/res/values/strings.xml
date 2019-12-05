@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Android-Home-Test</string>
+    <string name="title_keywords">Từ khoá hot</string>
+    <string name="another_section">Another Section</string>
+</resources>

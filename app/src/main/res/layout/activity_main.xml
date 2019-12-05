@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background_app"
+    tools:context=".main.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/layoutAnotherSection1"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginBottom="20dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:text="@string/another_section"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        <com.tiki.android_home_test.keywords_feature.KeywordsLayout
+            android:id="@+id/layoutKeywords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/layoutAnotherSection1" />
+
+        <RelativeLayout
+            android:id="@+id/layoutAnotherSection2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/layoutKeywords"
+            android:background="@android:color/white">
+
+            <TextView
+                android:layout_centerInParent="true"
+                android:text="@string/another_section"
+                android:textSize="22sp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <include layout="@layout/layout_loading" />
+
+</FrameLayout>
